@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <!-- Authors of INSPINIA admin template: WebAppLayers / https://wrapbootstrap.com/theme/inspinia-responsive-admin-theme-WB0R5L90S
+
+        * This project was created for learning programming and to help improve my skills.
+        * This project is not commercial.
+
+        Author of this mockup and business idea of this project is Kacper Kozioł. Linkedin: https://www.linkedin.com/in/kacperkoziol/
+    -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lista kontrahentów | TAVELI</title>
+
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="https://cdn3.iconfinder.com/data/icons/block/32/stopwatch-512.png"> -->
+  <link rel="icon" type="image/png" sizes="16x16" href="taveliicon.png">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <!-- FROM DESK -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7990d3a9fb.js" crossorigin="anonymous"></script>
+
+  <!-- Sweet Alert -->
+  <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+  <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+
+  <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+  <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
+  <link href="css/plugins/bootstrapSocial/bootstrap-social.css" rel="stylesheet">
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/desktomy.css" rel="stylesheet">
+
+
+  <style>
+    .menu-links {
+      padding-left: 47px !important;
+    }
+
+    table td {
+      padding-top: 10px !important;
+      padding-bottom: 8px !important;
+    }
+
+    tbody tr:hover {
+      /* background-color: #d8ebe6; */
+      background-color: rgba(216, 235, 230, 0.4) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+
+              <span class="block m-t-xs font-bold" style="color: darkgray;">TAVELI</span>
+              <span class="text-muted text-xs block m-b-xs">by Kacper Kozioł</span>
+              <a href="https://www.linkedin.com/in/kacperkoziol/" class="btn btn-social-icon btn-linkedin btn-xs" target="_blank"><span class="fa fa-linkedin"></span></a>
+
+            </div>
+            <div class="logo-element" style="font-size: 22px;">
+              <!-- <i class="fa fa-clock-o"></i> -->
+              <img src="taveliicon.png" alt="">
+            </div>
+          </li>
+
+          <li class="">
+            <a href="index.html"><i class="fa fa-home" style="font-size: 14px;"></i> <span class="nav-label">Dashboard</span></a>
+          </li>
+          <li class="active">
+            <a href="#" aria-expanded="false"><i class="fa fa-briefcase"></i> <span class="nav-label">Kontrahenci</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+
+              <li><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
+              </li>
+              <li class="active">
+                <a href="lista-kontrahentow.html" class="menu-links">Lista kontrahentów</a>
+              </li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-dollar"></i> <span class="nav-label">Księgowość</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+
+              <li><a href="moje-finanse.html" class="menu-links">Moje finanse</a>
+              </li>
+              <li>
+                <a href="dodaj-fakture.html" class="menu-links">Dodaj fakturę</a>
+              </li>
+              <li>
+                <a href="wystaw-fakture.html" class="menu-links">Wystaw fakturę</a>
+              </li>
+              <li>
+                <a href="dodaj-fakture-cykliczna.html" class="menu-links">Dodaj fakturę cykliczną</a>
+              </li>
+              <li>
+                <a href="lista-faktur.html" class="menu-links">Lista faktur</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-file"></i> <span class="nav-label">Dokumenty</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li>
+                <a href="dodaj-dokument.html" class="menu-links">Dodaj dokument</a>
+              </li>
+              <li><a href="repozytorium.html" class="menu-links">Repozytorium dokumentów</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-dropbox"></i> <span class="nav-label">Produkty i usługi</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li>
+                <a href="dodaj-produkt-usluge.html" class="menu-links">Dodaj produkt/usługę</a>
+              </li>
+              <li><a href="lista-produktow-uslug.html" class="menu-links">Lista produktów i usług</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="raporty.html"><i class="fa fa-line-chart" style="font-size: 14px;"></i> <span class="nav-label">Raporty</span></a>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-users"></i> <span class="nav-label">Użytkownicy</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li><a href="dodaj-uzytkownika.html" class="menu-links">Dodaj użytkownika</a>
+              </li>
+              <li><a href="lista-uzytkownikow.html" class="menu-links">Lista użytkowników</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-gears"></i> <span class="nav-label">Ustawienia</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li><a href="ustawienia-ogolne.html" class="menu-links">Ogólne</a>
+              </li>
+              <li><a href="ustawienia-ksiegowosc.html" class="menu-links">Księgowość</a>
+              </li>
+              <li><a href="ustawienia-system.html" class="menu-links">System</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" method="post" action="#">
+
+            </form>
+          </div>
+          <ul class="nav navbar-top-links navbar-right">
+            <li>
+              <a href="login.html">
+                <i class="fa fa-sign-out"></i> Wyloguj
+              </a>
+            </li>
+          </ul>
+
+        </nav>
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row wrapper border-bottom white-bg page-heading p-xs">
+          <div class="col-md-12 row">
+            <div class="col-11">
+              <h2 class="m-t-sm m-b-xss">Lista kontrahentów</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="ibox ">
+                <div class="ibox-title" style="padding-bottom: 15px;">
+                  <a href="dodaj-kontrahenta.html" class="btn btn-sm btn-primary">Dodaj kontrahenta</a>
+
+                  <div class="ibox-tools">
+                    <div>
+                      <div class="input-group"><input placeholder="Szukaj" type="text" class="form-control form-control-sm"> <span class="input-group-append"> <button type="button" class="btn btn-sm btn-primary">Szukaj
+                          </button> </span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ibox-content">
+
+                  <div class=" col-md-3 row m-b">
+                    <span class="pr-2">Pokaż</span>
+                    <select name="" id="">
+                      <option value="1">10</option>
+                      <option value="2">25</option>
+                      <option value="2">50</option>
+                      <option value="2">100</option>
+                    </select>
+                      <span class="pl-2">z 30 pozycji</span>
+                  </div>
+                  <table class="table table-striped" style="border: 1px solid #e7eaec;">
+                    <!-- <thead style="background-color:#a1ccc3; color: #333;"> -->
+                    <thead style="background-color:rgba(161, 204, 195, 0.5); color: #333;">
+                      <tr>
+                        <th>Kontrahent</th>
+                        <th>Adres</th>
+                        <th>E-mail</th>
+                        <th>Telefon</th>
+                        <th>NIP</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Firma 1</td>
+                        <td>33-123 Wrocław, Jagiellońska 13</td>
+                        <td>mark@bdui.com</td>
+                        <td>789 123 456</td>
+                        <td>4582146854</td>
+                        <td class="text-right">
+                          <div class="btn-group">
+                            <a href="edytuj-kontrahenta.html" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a class="btn btn-danger btn-xs text-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr style="padding-bottom: 30px;">
+                        <td>Firma 2</td>
+                        <td>33-123 Wrocław, Jagiellońska 13</td>
+                        <td>adam@companypl.pl</td>
+                        <td>159 537 321</td>
+                        <td>9788745124</td>
+                        <td class="text-right">
+                          <div class="btn-group">
+                            <a href="edytuj-kontrahenta.html" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a class="btn btn-danger btn-xs text-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Firma 3</td>
+                        <td>33-123 Wrocław, Jagiellońska 13</td>
+                        <td>larry@firmax.co.uk</td>
+                        <td>148 863 163</td>
+                        <td>5441235487</td>
+                        <td class="text-right">
+                          <div class="btn-group">
+                            <a href="edytuj-kontrahenta.html" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a class="btn btn-danger btn-xs text-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <td colspan="6" class="footable-visible">
+                        <ul class="pagination float-right no-margins pt-2 pb-2">
+                          <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li>
+                          <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li>
+                          <li class="footable-page active"><a data-page="0" href="#">1</a></li>
+                          <li class="footable-page"><a data-page="1" href="#">2</a></li>
+                          <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
+                          <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
+                        </ul>
+                      </td>
+                    </tfoot>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="footer">
+        <div class="pull-right">
+          <!--                    flags -->
+        </div>
+        <div>
+          <strong>TAVELI</strong> &copy; 2021
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mainly scripts -->
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="js/inspinia.js"></script>
+  <script src="js/plugins/pace/pace.min.js"></script>
+  <!-- <script src="js/plugins/sweetalert/sweetalert.min.js"></script> -->
+  <script src="js/plugins/toastr/toastr.min.js"></script>
+  <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+  <script src="main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+      });
+
+      $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+      });
+      $(function() {
+        $(".btn-tooltip").tooltip();
+      });
+
+      $('.btn-delete-attachment').click(function() {
+        swal({
+          title: "Usunąć załącznik?",
+          text: "Elementu nie będzie się dało odzyskać!",
+          type: "warning",
+          showCancelButton: true,
+          cancelButtonText: "Anuluj",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Usuń",
+          closeOnConfirm: false
+        }, function() {
+          swal("Usunięto!", "Element został usunięty.", "success");
+        });
+      });
+
+      $('.btn-delete-post').click(function() {
+        swal({
+          title: "Usunąć przypomnienie?",
+          text: "Elementu nie będzie się dało odzyskać!",
+          type: "warning",
+          showCancelButton: true,
+          cancelButtonText: "Anuluj",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Usuń",
+          closeOnConfirm: false
+        }, function() {
+          swal("Usunięto!", "Element został usunięty.", "success");
+        });
+      });
+
+      var updateOutput = function(e) {
+        var list = e.length ? e : $(e.target),
+          output = list.data('output');
+        if (window.JSON) {
+          output.val(window.JSON.stringify(list.nestable('serialize'))); //, null, 2));
+        } else {
+          output.val('JSON browser support required for this demo.');
+        }
+      };
+
+      // activate Nestable for list 1
+      $('#nestable').nestable({
+        group: 1,
+        maxDepth: 1
+      }).on('change', updateOutput);
+
+      $('#nestable3').nestable({
+        group: 1,
+        maxDepth: 1
+      }).on('change', updateOutput);
+
+      // output initial serialised data
+      updateOutput($('#nestable').data('output', $('#nestable-output')));
+      updateOutput($('#nestable3').data('output', $('#nestable2-output')));
+
+
+
+    });
+  </script>
+</body>
+
+</html>

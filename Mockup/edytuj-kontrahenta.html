@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <!-- Authors of INSPINIA admin template: WebAppLayers / https://wrapbootstrap.com/theme/inspinia-responsive-admin-theme-WB0R5L90S
+
+        * This project was created for learning programming and to help improve my skills.
+        * This project is not commercial.
+
+        Author of this mockup and business idea of this project is Kacper Kozioł. Linkedin: https://www.linkedin.com/in/kacperkoziol/
+    -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Edytuj kontrahenta | TAVELI</title>
+
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="https://cdn3.iconfinder.com/data/icons/block/32/stopwatch-512.png"> -->
+  <link rel="icon" type="image/png" sizes="16x16" href="taveliicon.png">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+  <link href="css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
+  <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <!-- FROM DESK -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7990d3a9fb.js" crossorigin="anonymous"></script>
+
+  <!-- Sweet Alert -->
+  <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+
+  <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+  <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
+  <link href="css/plugins/bootstrapSocial/bootstrap-social.css" rel="stylesheet">
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/desktomy.css" rel="stylesheet">
+
+
+  <style>
+    .menu-links {
+      padding-left: 47px !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+
+              <span class="block m-t-xs font-bold" style="color: darkgray;">TAVELI</span>
+              <span class="text-muted text-xs block m-b-xs">by Kacper Kozioł</span>
+              <a href="https://www.linkedin.com/in/kacperkoziol/" class="btn btn-social-icon btn-linkedin btn-xs" target="_blank"><span class="fa fa-linkedin"></span></a>
+
+            </div>
+            <div class="logo-element" style="font-size: 22px;">
+              <!-- <i class="fa fa-clock-o"></i> -->
+              <img src="taveliicon.png" alt="">
+            </div>
+          </li>
+
+          <li class="">
+            <a href="index.html"><i class="fa fa-home" style="font-size: 14px;"></i> <span class="nav-label">Dashboard</span></a>
+          </li>
+          <li class="active">
+            <a href="#" aria-expanded="false"><i class="fa fa-briefcase"></i> <span class="nav-label">Kontrahenci</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+
+              <li class="active"><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
+              </li>
+              <li>
+                <a href="lista-kontrahentow.html" class="menu-links">Lista kontrahentów</a>
+              </li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-dollar"></i> <span class="nav-label">Księgowość</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+
+              <li><a href="moje-finanse.html" class="menu-links">Moje finanse</a>
+              </li>
+              <li>
+                <a href="dodaj-fakture.html" class="menu-links">Dodaj fakturę</a>
+              </li>
+              <li>
+                <a href="wystaw-fakture.html" class="menu-links">Wystaw fakturę</a>
+              </li>
+              <li>
+                <a href="dodaj-fakture-cykliczna.html" class="menu-links">Dodaj fakturę cykliczną</a>
+              </li>
+              <li>
+                <a href="lista-faktur.html" class="menu-links">Lista faktur</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-file"></i> <span class="nav-label">Dokumenty</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li>
+                <a href="dodaj-dokument.html" class="menu-links">Dodaj dokument</a>
+              </li>
+              <li><a href="repozytorium.html" class="menu-links">Repozytorium dokumentów</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-dropbox"></i> <span class="nav-label">Produkty i usługi</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li>
+                <a href="dodaj-produkt-usluge.html" class="menu-links">Dodaj produkt/usługę</a>
+              </li>
+              <li><a href="lista-produktow-uslug.html" class="menu-links">Lista produktów i usług</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="raporty.html"><i class="fa fa-line-chart" style="font-size: 14px;"></i> <span class="nav-label">Raporty</span></a>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-users"></i> <span class="nav-label">Użytkownicy</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li><a href="dodaj-uzytkownika.html" class="menu-links">Dodaj użytkownika</a>
+              </li>
+              <li><a href="lista-uzytkownikow.html" class="menu-links">Lista użytkowników</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-gears"></i> <span class="nav-label">Ustawienia</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li><a href="ustawienia-ogolne.html" class="menu-links">Ogólne</a>
+              </li>
+              <li><a href="ustawienia-ksiegowosc.html" class="menu-links">Księgowość</a>
+              </li>
+              <li><a href="ustawienia-system.html" class="menu-links">System</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" method="post" action="#">
+
+            </form>
+          </div>
+          <ul class="nav navbar-top-links navbar-right">
+            <li>
+              <a href="login.html">
+                <i class="fa fa-sign-out"></i> Wyloguj
+              </a>
+            </li>
+          </ul>
+
+        </nav>
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row wrapper border-bottom white-bg page-heading p-xs">
+          <div class="col-md-12 row">
+            <div class="col-11">
+              <h2 class="m-t-sm m-b-xss">Edytuj kontrahenta</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+          <div class="row">
+
+            <div class="col-lg-7">
+              <div class="tabs-container">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li><a class="nav-link active " data-toggle="tab" href="#tab-1">Dane kontrahenta</a></li>
+                  <li><a class="nav-link " data-toggle="tab" href="#tab-2">Bank</a></li>
+                  <li><a class="nav-link " data-toggle="tab" href="#tab-3">Kontakt</a></li>
+                  <li><a class="nav-link " data-toggle="tab" href="#tab-4">Pliki</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-5">Inne</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div role="tabpanel" id="tab-1" class="tab-pane active">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label class="m-b-none">Nazwa firmy*</label>
+                        <input type="text" class="form-control" value="Oknex POL Sp. z o.o.">
+                        <small class="text-danger">Pole Nazwa firmy jest wymagane</small>
+                      </div>
+                      <div class="form-group">
+                        <label class="m-b-none">Ulica*</label>
+                        <input type="text" class="form-control m-b" value="Jesienna 33">
+                      </div>
+
+                      <div class="form-group m-b-none">
+                        <div class="row  form-line">
+                          <div class="col-md-3">
+                            <label class="m-b-none">Kod pocztowy*</label>
+                            <input type="text" class="form-control m-b" value="50-048">
+                            <!-- <small class="text-danger">Pole Prefix jest wymagane.</small> -->
+                          </div>
+                          <div class="col-md-9">
+                            <label class="m-b-none">Miejscowość*</label>
+                            <input type="text" class="form-control m-b" value="Wrocław">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group m-b">
+                        <label class="m-b-none">Kraj*</label>
+                        <select class="form-control m-b" name="account">
+                          <option>Polska</option>
+                          <option>Austria</option>
+                          <option>Niemcy</option>
+                          <option>Wielka Brytania</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group m-t-lg"><label> <input type="checkbox" value=""> Kontrahent unijny </label></div>
+
+                      <div class="form-group">
+                        <label class="m-b-none">NIP*</label>
+                        <input type="number" class="form-control m-b" value="4567981232">
+                      </div>
+                      <div class="form-group m-b-none">
+                        <div class="row  form-line">
+                          <div class="col-md-3">
+                            <label class="m-b-none">Prefix</label>
+                            <select class="form-control" name="account">
+                              <option value="0"> </option>
+                              <option value="1">AT - Austria</option>
+                              <option value="2">BE - Belgia</option>
+                              <option value="3">BG - Bułgaria</option>
+                              <option value="4">CY - Cypr</option>
+                              <option value="5">CZ - Czechy</option>
+                              <option value="6">DE - Niemcy</option>
+                              <option value="7">DK - Dania</option>
+                              <option value="8">EE - Estonia</option>
+                              <option value="9">EL - Grecja</option>
+                              <option value="10">ES - Hiszpania</option>
+                              <option value="11">EU - Europa</option>
+                              <option value="12">FI - Finlandia</option>
+                              <option value="13">FR - Francja</option>
+                              <option value="14">GB - Wielka Brytania</option>
+                              <option value="15">HR - Chorwacja</option>
+                              <option value="16">HU - Węgry</option>
+                              <option value="17">IE - Irlandia</option>
+                              <option value="18">IT - Włochy</option>
+                              <option value="19">LT - Litwa</option>
+                              <option value="20">LU - Luksemburg</option>
+                              <option value="21">LV - Łotwa</option>
+                              <option value="22">MT - Malta</option>
+                              <option value="23">NL - Holandia</option>
+                              <option value="24">PL - Polska</option>
+                              <option value="25">PT - Portugalia</option>
+                              <option value="26">RO - Rumunia</option>
+                              <option value="27">SE - Szwecja</option>
+                              <option value="28">SI - Słowenia</option>
+                              <option value="29">SK - Słowacja</option>
+                            </select>
+                            <!-- <small class="text-danger">Pole Prefix jest wymagane.</small> -->
+                          </div>
+                          <div class="col-md-9">
+                            <label class="m-b-none">NIP UE</label>
+                            <input type="number" class="form-control m-b">
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="ibox-footer">
+                      <a href="#" class="btn btn-primary">Zapisz</a>
+                      <a href="#" class="btn btn-default">Anuluj</a>
+                    </div>
+                  </div>
+
+                  <div role="tabpanel" id="tab-2" class="tab-pane">
+                    <div class="panel-body">
+                      <div class="form-group m-b-none">
+                        <div class="row  form-line">
+                          <div class="col-md-9">
+                            <label class="m-b-none">Numer rachunku bankowego</label>
+                            <input type="text" class="form-control" value="17 2490 1233 5678 9091 2272 9396">
+                          </div>
+                          <div class="col-md-3">
+                            <label class="m-b-none">SWIFT</label>
+                            <input type="text" class="form-control m-b">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="m-b-none">Nazwa banku</label>
+                        <input type="text" class="form-control" value="mBank">
+                      </div>
+                    </div>
+
+                    <div class="ibox-footer">
+                      <a href="#" class="btn btn-primary">Zapisz</a>
+                      <a href="#" class="btn btn-default">Anuluj</a>
+                    </div>
+                  </div>
+                  <div role="tabpanel" id="tab-3" class="tab-pane">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label class="m-b-none">Adres e-mail*</label>
+                        <input type="email" class="form-control" value="kontakt@testowyadresemail.pl">
+                        <small class="text-danger">Nieprawidłowy format adresu e-mail</small>
+                      </div>
+                      <div class="form-group">
+                        <label class="m-b-none">Nr telefonu</label>
+                        <input type="number" class="form-control m-b" value="231231213">
+                      </div>
+                    </div>
+                    <div class="ibox-footer">
+                      <a href="#" class="btn btn-primary">Zapisz</a>
+                      <a href="#" class="btn btn-default">Anuluj</a>
+                    </div>
+
+                    <div class="ibox-title m-t-lg" style="padding-right:25px;">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <h4>Osoby kontatkowe</h4>
+                        </div>
+                        <div class="col-md-7 text-right">
+                          <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#addcontact" data-original-title="Dodaj załącznik">Dodaj osobę</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ibox-content m-t-sm">
+
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <div class="profile-image">
+                            <img src="img/a4.jpg" class="rounded-circle circle-border m-b-md" alt="profile" style="margin-bottom:0;">
+                          </div>
+
+                        </div>
+                        <div class="col-sm-8">
+                          <h3>Alex Smith</h3>
+                          <span><b>Email:</b> asmith@jakistamadres.pl</span> <br>
+                          <span><b>Telefon:</b> 123654132</span> <br>
+                          <span><b>Stanowisko: </b>CEO</span>
+                        </div>
+                        <div class="col-sm-2 text-right">
+                          <div class="btn-group">
+                            <a class="btn btn-primary btn-xs" href="mailto:asmith@jakistamadres.pl"><i class="fa fa-envelope"></i></a>
+                            <button type="button" class="btn btn-primary btn-xs" title="" data-toggle="modal" data-target="#editcontact" data-original-title="Edytuj"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <a class="btn btn-danger btn-xs text-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash"></i></a>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="ibox-content m-t-sm">
+
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <div class="profile-image">
+                            <img src="img/a6.jpg" class="rounded-circle circle-border m-b-md" alt="profile" style="margin-bottom:0;">
+                          </div>
+
+                        </div>
+                        <div class="col-sm-8">
+                          <h3>Anne Lee</h3>
+                          <span><b>Email:</b> aleeh@jakistamadres.pl</span> <br>
+                          <span><b>Telefon:</b> 465123798</span> <br>
+                          <span><b>Stanowisko: </b>Dyrektor finansowy</span>
+                        </div>
+                        <div class="col-sm-2 text-right">
+                          <div class="btn-group">
+                            <a class="btn btn-primary btn-xs" href="mailto:asmith@jakistamadres.pl"><i class="fa fa-envelope"></i></a>
+                            <button type="button" class="btn btn-primary btn-xs" title="" data-toggle="modal" data-target="#editcontact" data-original-title="Edytuj"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <a class="btn btn-danger btn-xs text-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Usuń"><i class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" id="tab-4" class="tab-pane">
+                    <div class="panel-body">
+                      <div class="m-b-lg text-right">
+                        <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#addfile" data-original-title="Dodaj załącznik">Dodaj plik</button>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                              <i class="fa fa-file-text"></i>
+                            </div>
+                            <div class="file-name">
+                              Document_2014.doc
+                              <br>
+                              <small>Dodano: Sty 11, 2014</small> <br>
+                              <div class="text-right">
+                                <div class="btn-group m-t-sm">
+                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top" data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title="" title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
+                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
+                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                          <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                              <i class="fa fa-file-image-o"></i>
+                            </div>
+                            <div class="file-name">
+                              Document_2014.jpg
+                              <br>
+                              <small>Dodano: Sty 11, 2014</small> <br>
+                              <div class="text-right">
+                                <div class="btn-group m-t-sm">
+                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
+                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                          <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                              <i class="fa fa-file-pdf-o"></i>
+                            </div>
+                            <div class="file-name">
+                              Document_2014.pdf
+                              <br>
+                              <small>Dodano: Sty 11,, 2014</small> <br>
+                              <div class="text-right">
+                                <div class="btn-group m-t-sm">
+                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top" data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title="" title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
+                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
+                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                          <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                              <i class="fa fa-file-excel-o"></i>
+                            </div>
+                            <div class="file-name">
+                              Document_2014.doc
+                              <br>
+                              <small>Dodano: Sty 11, 2014</small> <br>
+                              <div class="text-right">
+                                <div class="btn-group m-t-sm">
+                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
+                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                          <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                              <i class="fa fa-file"></i>
+                            </div>
+                            <div class="file-name">
+                              Document_2014.inne
+                              <br>
+                              <small>Dodano: Sty 11, 2014</small> <br>
+                              <div class="text-right">
+                                <div class="btn-group m-t-sm">
+                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
+                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" id="tab-5" class="tab-pane">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label class="m-b-none">Informacje dodatkowe</label>
+                        <textarea type="text" class="form-control" rows="5">Dodatkowa, dowolna informacja o kontrahencie.</textarea>
+                      </div>
+                    </div>
+                    <div class="ibox-footer">
+                      <a href="#" class="btn btn-primary">Zapisz</a>
+                      <a href="#" class="btn btn-default">Anuluj</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DODAJ OS KONTAKTOWĄ MODAL START -->
+      <div class="modal inmodal" id="addcontact" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Dodaj osobę kontaktową</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Imię</label>
+                <input type="text" placeholder="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Nazwisko</label>
+                <input type="text" placeholder="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Adres e-mail</label>
+                <input type="text" placeholder="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Telefon</label>
+                <input type="text" placeholder="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Stanowisko</label>
+                <input type="text" placeholder="" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="m-b-none">Awatar</label>
+                <input type="file" placeholder="" class="form-control">
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DODAJ OS KONTAKTOWĄ MODAL END-->
+
+      <!-- DODAJ OS KONTAKTOWĄ MODAL START -->
+      <div class="modal inmodal" id="editcontact" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Edytuj osobę kontaktową</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Imię</label>
+                <input type="text" placeholder="" class="form-control" value="Alex">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Nazwisko</label>
+                <input type="text" placeholder="" class="form-control" value="Smith">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Adres e-mail</label>
+                <input type="text" placeholder="" class="form-control" value="asmith@jakistamadres.pl">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Telefon</label>
+                <input type="text" placeholder="" class="form-control" value="123654132">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Stanowisko</label>
+                <input type="text" placeholder="" class="form-control" value="CEO">
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DODAJ OS KONTAKTOWĄ MODAL END-->
+
+      <!-- DODAJ PLIK MODAL START -->
+      <div class="modal inmodal" id="addfile" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Dodaj plik</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Plik*</label>
+                <input type="file" placeholder="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="m-b-none">Opis</label>
+                <textarea type="text" placeholder="" class="form-control" rows="6"></textarea>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DODAJ PLIK MODAL END-->
+
+      <!-- DODAJ PLIK MODAL START -->
+      <div class="modal inmodal" id="editfile" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Edytuj plik</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Nazwa pliku*</label>
+                <input type="text" placeholder="" class="form-control" value="Document_2014.jpg">
+              </div>
+
+              <div class="form-group">
+                <label class="m-b-none">Opis</label>
+                <textarea type="text" placeholder="" class="form-control" rows="6">Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona</textarea>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DODAJ PLIK MODAL END-->
+
+
+      <div class="footer">
+        <div class="pull-right">
+          <!--                    flags -->
+        </div>
+        <div>
+          <strong>TAVELI</strong> &copy; 2021
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mainly scripts -->
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="js/inspinia.js"></script>
+  <script src="js/plugins/pace/pace.min.js"></script>
+  <!-- <script src="js/plugins/sweetalert/sweetalert.min.js"></script> -->
+  <script src="js/plugins/toastr/toastr.min.js"></script>
+  <script src="js/plugins/select2/select2.full.min.js"></script>
+  <script src="main.js"></script>
+
+  <script type="text/javascript">
+    $(".select2_demo_1").select2({
+      theme: 'bootstrap4',
+    });
+  </script>
+
+</body>
+
+</html>
