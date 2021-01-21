@@ -90,7 +90,7 @@
             <a href="#" aria-expanded="false"><i class="fa fa-briefcase"></i> <span class="nav-label">Kontrahenci</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
 
-              <li class="active"><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
+              <li class=""><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
               </li>
               <li>
                 <a href="lista-kontrahentow.html" class="menu-links">Lista kontrahentów</a>
@@ -391,7 +391,7 @@
                       <div class="row">
                         <div class="col-sm-2">
                           <div class="profile-image">
-                            <img src="img/a6.jpg" class="rounded-circle circle-border m-b-md" alt="profile" style="margin-bottom:0;">
+                            <img src="img/adefault.png" class="rounded-circle circle-border m-b-md" alt="profile" style="margin-bottom:0;">
                           </div>
 
                         </div>
@@ -430,7 +430,9 @@
                               <small>Dodano: Sty 11, 2014</small> <br>
                               <div class="text-right">
                                 <div class="btn-group m-t-sm">
-                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top" data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title="" title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
+                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top"
+                                    data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title=""
+                                    title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
                                   <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
                                   <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
@@ -470,10 +472,12 @@
                             <div class="file-name">
                               Document_2014.pdf
                               <br>
-                              <small>Dodano: Sty 11,, 2014</small> <br>
+                              <small>Dodano: Sty 11, 2014</small> <br>
                               <div class="text-right">
                                 <div class="btn-group m-t-sm">
-                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top" data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title="" title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
+                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top"
+                                    data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title=""
+                                    title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
                                   <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
                                   <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
@@ -490,7 +494,7 @@
                               <i class="fa fa-file-excel-o"></i>
                             </div>
                             <div class="file-name">
-                              Document_2014.doc
+                              Document_2014.xls
                               <br>
                               <small>Dodano: Sty 11, 2014</small> <br>
                               <div class="text-right">
@@ -558,11 +562,11 @@
             <div class="modal-body">
 
               <div class="form-group">
-                <label class="m-b-none">Imię</label>
+                <label class="m-b-none">Imię*</label>
                 <input type="text" placeholder="" class="form-control">
               </div>
               <div class="form-group">
-                <label class="m-b-none">Nazwisko</label>
+                <label class="m-b-none">Nazwisko*</label>
                 <input type="text" placeholder="" class="form-control">
               </div>
               <div class="form-group">
@@ -604,11 +608,11 @@
             <div class="modal-body">
 
               <div class="form-group">
-                <label class="m-b-none">Imię</label>
+                <label class="m-b-none">Imię*</label>
                 <input type="text" placeholder="" class="form-control" value="Alex">
               </div>
               <div class="form-group">
-                <label class="m-b-none">Nazwisko</label>
+                <label class="m-b-none">Nazwisko*</label>
                 <input type="text" placeholder="" class="form-control" value="Smith">
               </div>
               <div class="form-group">
@@ -648,6 +652,9 @@
                 <label class="m-b-none">Plik*</label>
                 <input type="file" placeholder="" class="form-control">
               </div>
+
+              <div class="form-group m-t-lg"><label> <input type="checkbox" value=""> Udostępnij plik dla kontrahenta</label></div>
+
               <div class="form-group">
                 <label class="m-b-none">Opis</label>
                 <textarea type="text" placeholder="" class="form-control" rows="6"></textarea>
@@ -675,12 +682,15 @@
 
               <div class="form-group">
                 <label class="m-b-none">Nazwa pliku*</label>
-                <input type="text" placeholder="" class="form-control" value="Document_2014.jpg">
+                <input type="text" placeholder="" class="form-control" value="Document_2014">
               </div>
+
+              <div class="form-group m-t-lg"><label> <input type="checkbox" value=""> Udostępnij plik dla kontrahenta </label></div>
 
               <div class="form-group">
                 <label class="m-b-none">Opis</label>
-                <textarea type="text" placeholder="" class="form-control" rows="6">Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona</textarea>
+                <textarea type="text" placeholder="" class="form-control"
+                  rows="6">Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona</textarea>
               </div>
 
             </div>
