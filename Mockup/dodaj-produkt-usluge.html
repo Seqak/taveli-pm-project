@@ -15,7 +15,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dodaj kontrahenta | TAVELI</title>
+  <title>Dodaj produkt lub usługę | TAVELI</title>
 
   <!-- <link rel="icon" type="image/png" sizes="16x16" href="https://cdn3.iconfinder.com/data/icons/block/32/stopwatch-512.png"> -->
   <link rel="icon" type="image/png" sizes="16x16" href="taveliicon.png">
@@ -80,11 +80,11 @@
           <li class="">
             <a href="index.html"><i class="fa fa-home" style="font-size: 14px;"></i> <span class="nav-label">Dashboard</span></a>
           </li>
-          <li class="active">
+          <li>
             <a href="#" aria-expanded="false"><i class="fa fa-briefcase"></i> <span class="nav-label">Kontrahenci</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
 
-              <li class="active"><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
+              <li class=""><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
               </li>
               <li>
                 <a href="lista-kontrahentow.html" class="menu-links">Lista kontrahentów</a>
@@ -126,10 +126,10 @@
             </ul>
           </li>
 
-          <li class="">
+          <li class="active">
             <a href="#" aria-expanded="false"><i class="fa fa-dropbox"></i> <span class="nav-label">Produkty i usługi</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-              <li>
+              <li class="active">
                 <a href="dodaj-produkt-usluge.html" class="menu-links">Dodaj produkt/usługę</a>
               </li>
               <li><a href="lista-produktow-uslug.html" class="menu-links">Lista produktów i usług</a>
@@ -183,7 +183,7 @@
         <div class="row wrapper border-bottom white-bg page-heading p-xs">
           <div class="col-md-12 row">
             <div class="col-11">
-              <h2 class="m-t-sm m-b-xss">Dodaj kontrahenta</h2>
+              <h2 class="m-t-sm m-b-xss">Dodaj produkt lub usługę</h2>
             </div>
           </div>
         </div>
@@ -193,148 +193,56 @@
             <div class="col-md-6">
               <div class="ibox">
                 <div class="ibox-title">
-                  <h3>Dane kontrahent</h3>
+                  <h3>Informacje</h3>
                 </div>
                 <div class="ibox-content">
 
-                  <div class="form-group text-right">
-                    <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#getfromgus" data-original-title="Dodaj załącznik">Pobierz dane z GUS</button>
+                  <div class="form-group row">
+                    <div class="col-md-6" style="padding-right: 0px;">
+                      <button class="btn btn-block btn-primary" id="good" onclick="setGood()" style="border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important;">Towar</button>
+                    </div>
+                    <div class="col-md-6" style="padding-left: 0px;">
+                      <button class="btn btn-default btn-block" id="service" onclick="setService()" style="border-top-left-radius: 0px !important; border-bottom-left-radius: 0px !important;">Usługa</button>
+                    </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="m-b-none">Nazwa firmy*</label>
+                    <label class="m-b-none" id="typeService">Nazwa towaru*</label>
                     <input type="text" class="form-control">
-                    <small class="text-danger">Pole Nazwa firmy jest wymagane</small>
+                    <small class="text-danger">Pole Nazwa towaru jest wymagane</small>
                   </div>
-                  <div class="form-group">
-                    <label class="m-b-none">Ulica*</label>
+
+
+
+                  <!-- <div class="form-group">
+                    <label class="m-b-none">Cena*</label>
                     <input type="text" class="form-control m-b">
-                  </div>
+                  </div> -->
 
                   <div class="form-group m-b-none">
                     <div class="row  form-line">
-                      <div class="col-md-3">
-                        <label class="m-b-none">Kod pocztowy*</label>
-                        <input type="text" class="form-control m-b">
-                        <!-- <small class="text-danger">Pole Prefix jest wymagane.</small> -->
-                      </div>
-                      <div class="col-md-9">
-                        <label class="m-b-none">Miejscowość*</label>
+                      <div class="col-md-4">
+                        <label class="m-b-none">Ilość*</label>
                         <input type="text" class="form-control m-b">
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group m-b">
-                    <label class="m-b-none">Kraj*</label>
-                    <select class="form-control m-b" name="account">
-                      <option>Polska</option>
-                      <option>Austria</option>
-                      <option>Niemcy</option>
-                      <option>Wielka Brytania</option>
-                    </select>
-                  </div>
-
-                    <div class="form-group m-t-lg"><label> <input type="checkbox" value=""> Kontrahent unijny </label></div>
-
-                  <div class="form-group">
-                    <label class="m-b-none">NIP*</label>
-                    <input type="number" class="form-control m-b">
-                  </div>
-                  <div class="form-group m-b-none">
-                    <div class="row  form-line">
-                      <div class="col-md-3">
-                        <label class="m-b-none">Prefix</label>
-                        <select class="form-control" name="account">
-                          <option value="0"> </option>
-                          <option value="1">AT - Austria</option>
-                          <option value="2">BE - Belgia</option>
-                          <option value="3">BG - Bułgaria</option>
-                          <option value="4">CY - Cypr</option>
-                          <option value="5">CZ - Czechy</option>
-                          <option value="6">DE - Niemcy</option>
-                          <option value="7">DK - Dania</option>
-                          <option value="8">EE - Estonia</option>
-                          <option value="9">EL - Grecja</option>
-                          <option value="10">ES - Hiszpania</option>
-                          <option value="11">EU - Europa</option>
-                          <option value="12">FI - Finlandia</option>
-                          <option value="13">FR - Francja</option>
-                          <option value="14">GB - Wielka Brytania</option>
-                          <option value="15">HR - Chorwacja</option>
-                          <option value="16">HU - Węgry</option>
-                          <option value="17">IE - Irlandia</option>
-                          <option value="18">IT - Włochy</option>
-                          <option value="19">LT - Litwa</option>
-                          <option value="20">LU - Luksemburg</option>
-                          <option value="21">LV - Łotwa</option>
-                          <option value="22">MT - Malta</option>
-                          <option value="23">NL - Holandia</option>
-                          <option value="24">PL - Polska</option>
-                          <option value="25">PT - Portugalia</option>
-                          <option value="26">RO - Rumunia</option>
-                          <option value="27">SE - Szwecja</option>
-                          <option value="28">SI - Słowenia</option>
-                          <option value="29">SK - Słowacja</option>
-                        </select>
-                        <!-- <small class="text-danger">Pole Prefix jest wymagane.</small> -->
+                      <div class="col-md-4">
+                        <label class="m-b-none">Jednostka miary</label>
+                        <input type="text" class="form-control m-b">
                       </div>
-                      <div class="col-md-9">
-                        <label class="m-b-none">NIP UE</label>
-                        <input type="number" class="form-control m-b">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="ibox">
-                <div class="ibox-title">
-                  <h3>Bank</h3>
-                </div>
-                <div class="ibox-content">
-                  <div class="form-group m-b-none">
-                    <div class="row  form-line">
-                      <div class="col-md-9">
-                        <label class="m-b-none">Numer rachunku bankowego</label>
-                        <input type="text" class="form-control">
-                      </div>
-                      <div class="col-md-3">
-                        <label class="m-b-none">SWIFT</label>
+                      <div class="col-md-4">
+                        <label class="m-b-none">Cena*</label>
                         <input type="text" class="form-control m-b">
                       </div>
                     </div>
                   </div>
+                  
                   <div class="form-group">
-                    <label class="m-b-none">Nazwa banku</label>
-                    <input type="text" class="form-control">
+                    <label class="m-b-none">Koszt</label>
+                    <input type="text" class="form-control m-b" readonly>
                   </div>
-                </div>
-              </div>
 
-              <div class="ibox">
-                <div class="ibox-title">
-                  <h3>Kontakt</h3>
-                </div>
-                <div class="ibox-content">
                   <div class="form-group">
-                    <label class="m-b-none">Adres e-mail*</label>
-                    <input type="email" class="form-control">
-                    <small class="text-danger">Nieprawidłowy format adresu e-mail</small>
-                  </div>
-                  <div class="form-group">
-                    <label class="m-b-none">Nr telefonu</label>
-                    <input type="number" class="form-control m-b">
-                  </div>
-                </div>
-              </div>
-              <div class="ibox">
-                <div class="ibox-title ">
-                  <h3>Inne</h3>
-                </div>
-                <div class="ibox-content">
-                  <div class="form-group">
-                    <label class="m-b-none">Informacje dodatkowe</label>
+                    <label class="m-b-none">Opis</label>
                     <textarea type="text" class="form-control" rows="5"></textarea>
                   </div>
                 </div>
@@ -344,45 +252,10 @@
                   <a href="lista-kontrahentow.html" class="btn btn-default">Anuluj</a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
-
-      <!-- POBIERZ DANE Z GUS MODAL START -->
-      <div class="modal inmodal" id="getfromgus" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content animated fadeInDown">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-
-              <h4 class="modal-title">Pobierz dane z GUS</h4>
-
-            </div>
-            <div class="modal-body">
-              <div class="alert alert-info">Wybierz jeden z dostępnych indentyfikatorów.</div>
-
-              <div class="col-sm-10 m-b row">
-                <div class="m-r-sm"><label><input type="radio" value="2" name="email_alert" checked=""> NIP</label></div>
-                <div class="m-r-sm"><label><input type="radio" value="1" name="email_alert"> REGON</label></div>
-                <div class="m-r-sm"><label><input type="radio" value="3" name="email_alert"> KRS</div>
-              </div>
-
-              <div class="form-group">
-                <label class="m-b-none">Numer identyfikacyjny</label>
-                <input id="regon" maxlength="14" type="number" placeholder="" class="form-control">
-                <small class="text-danger">Nie znaleziono podmiotu o podanym numerze.</small>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
-              <button type="button" class="btn btn-primary">Pobierz</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- POBIERZ DANE Z GUS MODAL END-->
 
 
       <div class="footer">
@@ -417,6 +290,28 @@
     $(".select2_demo_1").select2({
       theme: 'bootstrap4',
     });
+
+
+    function setGood(){
+        var good = document.getElementById('good');
+        var service = document.getElementById('service');
+        var label = document.getElementById("typeService");
+        good.className = "btn btn-block btn-primary";
+        service.className = "btn btn-block btn-default"
+        label.innerText = "Nazwa towaru*";
+
+    }
+
+    function setService(){
+      var good = document.getElementById('good');
+      var service = document.getElementById('service');
+      var label = document.getElementById("typeService");
+      good.className = "btn btn-block btn-default";
+      service.className = "btn btn-block btn-primary";
+      label.innerText = "Nazwa usługi*";
+    }
+
+
   </script>
 
 </body>

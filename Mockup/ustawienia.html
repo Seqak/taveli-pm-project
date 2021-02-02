@@ -15,7 +15,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Edytuj kontrahenta | TAVELI</title>
+  <title>Ustawienia | TAVELI</title>
 
   <!-- <link rel="icon" type="image/png" sizes="16x16" href="https://cdn3.iconfinder.com/data/icons/block/32/stopwatch-512.png"> -->
   <link rel="icon" type="image/png" sizes="16x16" href="taveliicon.png">
@@ -31,6 +31,11 @@
   <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
   <link href="css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
   <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
 
   <!-- FROM DESK -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -92,8 +97,8 @@
             </ul>
           </li>
           <li class="">
-          <a href="kalendarz.html"><i class="fa fa-calendar" style="font-size: 14px;"></i> <span class="nav-label">Kalendarz</span></a>
-        </li>
+            <a href="kalendarz.html"><i class="fa fa-calendar" style="font-size: 14px;"></i> <span class="nav-label">Kalendarz</span></a>
+          </li>
           <li class="">
             <a href="#" aria-expanded="false"><i class="fa fa-dollar"></i> <span class="nav-label">Księgowość</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
@@ -183,7 +188,7 @@
         <div class="row wrapper border-bottom white-bg page-heading p-xs">
           <div class="col-md-12 row">
             <div class="col-11">
-              <h2 class="m-t-sm m-b-xss">Edytuj kontrahenta</h2>
+              <h2 class="m-t-sm m-b-xss">Ustawienia</h2>
             </div>
           </div>
         </div>
@@ -194,15 +199,19 @@
             <div class="col-lg-7">
               <div class="tabs-container">
                 <ul class="nav nav-tabs" role="tablist">
-                  <li><a class="nav-link active " data-toggle="tab" href="#tab-1">Dane kontrahenta</a></li>
+                  <li><a class="nav-link active " data-toggle="tab" href="#tab-1">Dane firmy</a></li>
                   <li><a class="nav-link " data-toggle="tab" href="#tab-2">Bank</a></li>
                   <li><a class="nav-link " data-toggle="tab" href="#tab-3">Kontakt</a></li>
-                  <li><a class="nav-link " data-toggle="tab" href="#tab-4">Pliki</a></li>
-                  <li><a class="nav-link" data-toggle="tab" href="#tab-5">Inne</a></li>
+                  <li><a class="nav-link " data-toggle="tab" href="#tab-4">Faktura</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#tab-5">System</a></li>
+                  <!-- <li><a class="nav-link" data-toggle="tab" href="#tab-7">System</a></li> -->
                 </ul>
                 <div class="tab-content">
                   <div role="tabpanel" id="tab-1" class="tab-pane active">
                     <div class="panel-body">
+
+                      <div class="alert alert-info">Umieszczone tutaj informacje, będą widniały na fakturze jako dane sprzedawcy.</div>
+
                       <div class="form-group">
                         <label class="m-b-none">Nazwa firmy*</label>
                         <input type="text" class="form-control" value="Oknex POL Sp. z o.o.">
@@ -236,8 +245,6 @@
                           <option>Wielka Brytania</option>
                         </select>
                       </div>
-
-                      <div class="form-group m-t-lg"><label> <input type="checkbox" value=""> Kontrahent unijny </label></div>
 
                       <div class="form-group">
                         <label class="m-b-none">NIP*</label>
@@ -288,6 +295,13 @@
                         </div>
                       </div>
 
+                      <div class="form-group">
+                        <label class="m-b-none">Logo firmy</label>
+                        <input type="file" class="form-control">
+
+                        <img class="m-t-lg" src="img/taveli-logo1.png" alt="">
+                      </div>
+
                     </div>
                     <div class="ibox-footer">
                       <a href="#" class="btn btn-primary">Zapisz</a>
@@ -331,6 +345,60 @@
                         <label class="m-b-none">Nr telefonu</label>
                         <input type="number" class="form-control m-b" value="231231213">
                       </div>
+                    </div>
+                    <div class="ibox-title">
+                      <h3>Ustawienia SMTP</h3>
+                    </div>
+                    <div class="ibox-content">
+
+
+                      <div class="form-group m-b-none">
+                        <div class="row  form-line">
+                          <div class="col-md-6">
+                            <label class="m-b-none">E-mail*</label>
+                            <input type="email" class="form-control m-b" value="powiadomienia@taveli.pl">
+                            <!-- <small class="text-danger">Pole Prefix jest wymagane.</small> -->
+                          </div>
+                          <div class="col-md-6">
+                            <label class="m-b-none">Nazwa*</label>
+                            <input type="text" class="form-control m-b" value="TAVELI">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group m-b-none">
+                        <div class="row  form-line">
+                          <div class="col-md-6">
+                            <label class="m-b-none">Login*</label>
+                            <input type="text" class="form-control m-b" value="powiadomienia@taveli.pl">
+                            <!-- <small class="text-danger">Pole Prefix jest wymagane.</small> -->
+                          </div>
+                          <div class="col-md-6">
+                            <label class="m-b-none">Hasło*</label>
+                            <input type="password" class="form-control m-b" value="aaabbbbcccc">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group m-b-none">
+                        <div class="row  form-line">
+                          <div class="col-md-6">
+                            <label class="m-b-none">Serwer*</label>
+                            <input type="text" class="form-control m-b" value="smtp.ovh.com">
+                          </div>
+                          <div class="col-md-3">
+                            <label class="m-b-none">Port*</label>
+                            <input type="number" class="form-control m-b" value="21">
+                          </div>
+                          <div class="col-md-3 row">
+                            <div class="form-group m-t-lg m-l-sm"><label> <input type="radio" value=""> SSL </label>
+                              <label> <input class="m-l-sm" type="radio" value=""> TLS </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
                     </div>
                     <div class="ibox-footer">
                       <a href="#" class="btn btn-primary">Zapisz</a>
@@ -402,137 +470,165 @@
                   </div>
                   <div role="tabpanel" id="tab-4" class="tab-pane">
                     <div class="panel-body">
-                      <div class="m-b-lg text-right">
-                        <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#addfile" data-original-title="Dodaj załącznik">Dodaj plik</button>
-                      </div>
-
                       <div class="row">
-                        <div class="col-md-3">
-                          <div class="file">
-                            <span class="corner"></span>
-                            <div class="icon">
-                              <i class="fa fa-file-text"></i>
-                            </div>
-                            <div class="file-name">
-                              Document_2014.doc
-                              <br>
-                              <small>Dodano: Sty 11, 2014</small> <br>
-                              <div class="text-right">
-                                <div class="btn-group m-t-sm">
-                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top"
-                                    data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title=""
-                                    title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
-                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
-                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="col-md-5">
+                          <h3>Serie numeracji</h3>
                         </div>
-
-                        <div class="col-md-3">
-                          <div class="file">
-                            <span class="corner"></span>
-                            <div class="icon">
-                              <i class="fa fa-file-image-o"></i>
-                            </div>
-                            <div class="file-name">
-                              Document_2014.jpg
-                              <br>
-                              <small>Dodano: Sty 11, 2014</small> <br>
-                              <div class="text-right">
-                                <div class="btn-group m-t-sm">
-                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
-                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="col-md-7 text-right">
+                          <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#addseria" data-original-title="Dodaj załącznik">Dodaj serię</button>
                         </div>
-
-                        <div class="col-md-3">
-                          <div class="file">
-                            <span class="corner"></span>
-                            <div class="icon">
-                              <i class="fa fa-file-pdf-o"></i>
-                            </div>
-                            <div class="file-name">
-                              Document_2014.pdf
-                              <br>
-                              <small>Dodano: Sty 11, 2014</small> <br>
-                              <div class="text-right">
-                                <div class="btn-group m-t-sm">
-                                  <button type="button" class="btn btn-primary btn-xs" data-toggle="popover" data-placement="top"
-                                    data-content="Aneks do umowy z dnia 20.01.2020 tekst składający się z łacińskich i quasi-łacińskich wyrazów, mający korzenie w klasycznej łacinie, wzorowany na fragmencie traktatu Cycerona" data-original-title=""
-                                    title="" aria-describedby="popover718479"><i class="fa fa-info-circle"></i></button>
-                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
-                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-3">
-                          <div class="file">
-                            <span class="corner"></span>
-                            <div class="icon">
-                              <i class="fa fa-file-excel-o"></i>
-                            </div>
-                            <div class="file-name">
-                              Document_2014.xls
-                              <br>
-                              <small>Dodano: Sty 11, 2014</small> <br>
-                              <div class="text-right">
-                                <div class="btn-group m-t-sm">
-                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
-                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-3">
-                          <div class="file">
-                            <span class="corner"></span>
-                            <div class="icon">
-                              <i class="fa fa-file"></i>
-                            </div>
-                            <div class="file-name">
-                              Document_2014.inne
-                              <br>
-                              <small>Dodano: Sty 11, 2014</small> <br>
-                              <div class="text-right">
-                                <div class="btn-group m-t-sm">
-                                  <button class="btn btn-primary btn-xs"><i class="fa fa-cloud-download"></i></button>
-                                  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editfile" data-original-title="Edytuj"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs text-light"><i class="fa fa-trash"></i></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
                       </div>
                     </div>
+                    <div class="ibox-content">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Nazwa</th>
+                            <th>Seria</th>
+                            <th class="text-right"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Faktura VAT</td>
+                            <td>FV/[dd]/[mm]/[rrrr]/[nm]</td>
+                            <td class="text-right">
+                              <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" data-tooltip="tooltip" data-toggle="modal" data-target="#editseria"><i class="fa fa-pencil p-none"></i></button>
+                                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash p-none"></i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Faktura Proforma</td>
+                            <td>PF/[dd]/[mm]/[rrrr]/[nm]</td>
+                            <td class="text-right">
+                              <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" data-tooltip="tooltip" data-toggle="modal" data-target="#editseria"><i class="fa fa-pencil p-none"></i></button>
+                                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash p-none"></i></button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="ibox-title m-t-lg" style="padding-right:25px;">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <h3>Stawki VAT</h3>
+                        </div>
+                        <div class="col-md-7 text-right">
+                          <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#addvat" data-original-title="Dodaj załącznik">Dodaj stawkę VAT</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ibox-content">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Stawka</th>
+                            <th class="text-right"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>23%</td>
+                            <td class="text-right">
+                              <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" data-tooltip="tooltip" data-toggle="modal" data-target="#editvat"><i class="fa fa-pencil p-none"></i></button>
+                                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash p-none"></i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>50%</td>
+                            <td class="text-right">
+                              <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" data-tooltip="tooltip" data-toggle="modal" data-target="#editvat"><i class="fa fa-pencil p-none"></i></button>
+                                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash p-none"></i></button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+
+                    <div class="ibox-title m-t-lg" style="padding-right:25px;">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <h3>Metody płatności</h3>
+                        </div>
+                        <div class="col-md-7 text-right">
+                          <button type="button" class="btn btn-primary" title="" data-toggle="modal" data-target="#addsposob" data-original-title="Dodaj załącznik">Dodaj metodę płatności</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ibox-content">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Nazwa</th>
+                            <th class="text-right"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Przelew</td>
+                            <td class="text-right">
+                              <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" data-tooltip="tooltip" data-toggle="modal" data-target="#editsposob"><i class="fa fa-pencil p-none"></i></button>
+                                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash p-none"></i></button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Gotówka</td>
+                            <td class="text-right">
+                              <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" data-tooltip="tooltip" data-toggle="modal" data-target="#editsposob"><i class="fa fa-pencil p-none"></i></button>
+                                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-trash p-none"></i></button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
+
                   <div role="tabpanel" id="tab-5" class="tab-pane">
                     <div class="panel-body">
+                      <h3 class="m-b-none">Serwer</h3>
+                    </div>
+                    <div class="ibox-content">
+                      <h4>AWS</h4>
+
+                      <div class="form-group"><label> <input type="checkbox" value=""> Aktywuj AWS</label></div>
+
+
                       <div class="form-group">
-                        <label class="m-b-none">Informacje dodatkowe</label>
-                        <textarea type="text" class="form-control" rows="5">Dodatkowa, dowolna informacja o kontrahencie.</textarea>
+                        <label class="m-b-none">Token</label>
+                        <input type="text" class="form-control">
                       </div>
+
+                      <hr>
+                      <h4>Azure</h4>
+
+                      <div class="form-group"><label> <input type="checkbox" value=""> Aktywuj Azure</label></div>
+
+
+
                     </div>
                     <div class="ibox-footer">
                       <a href="#" class="btn btn-primary">Zapisz</a>
                       <a href="#" class="btn btn-default">Anuluj</a>
                     </div>
                   </div>
+
+
+
+
                 </div>
               </div>
             </div>
@@ -540,40 +636,31 @@
         </div>
       </div>
 
-      <!-- DODAJ OS KONTAKTOWĄ MODAL START -->
-      <div class="modal inmodal" id="addcontact" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+      <!-- DODAJ SERIĘ MODAL START -->
+      <div class="modal inmodal" id="addseria" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content animated fadeInDown">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title">Dodaj osobę kontaktową</h4>
+              <h4 class="modal-title">Dodaj serię</h4>
             </div>
             <div class="modal-body">
 
               <div class="form-group">
-                <label class="m-b-none">Imię*</label>
+                <label class="m-b-none">Nazwa*</label>
                 <input type="text" placeholder="" class="form-control">
               </div>
               <div class="form-group">
-                <label class="m-b-none">Nazwisko*</label>
-                <input type="text" placeholder="" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="m-b-none">Adres e-mail</label>
-                <input type="text" placeholder="" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="m-b-none">Telefon</label>
-                <input type="text" placeholder="" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="m-b-none">Stanowisko</label>
+                <label class="m-b-none">Seria*</label>
                 <input type="text" placeholder="" class="form-control">
               </div>
 
-              <div class="form-group">
-                <label class="m-b-none">Awatar</label>
-                <input type="file" placeholder="" class="form-control">
+              <div class="alert alert-info">Dostępne zmienne: <br>
+                [dd] - Dzień <br>
+                [mm] - Miesiąc<br>
+                [rrrr] - Rok<br>
+                [nm] - Numer miesięczny<br>
+                [nr] - Numer roczny
               </div>
 
             </div>
@@ -584,37 +671,62 @@
           </div>
         </div>
       </div>
-      <!-- DODAJ OS KONTAKTOWĄ MODAL END-->
+      <!-- DODAJ SERIĘ MODAL END-->
 
-      <!-- DODAJ OS KONTAKTOWĄ MODAL START -->
-      <div class="modal inmodal" id="editcontact" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+      <!-- EDYTUJ SERIĘ MODAL START -->
+      <div class="modal inmodal" id="editseria" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content animated fadeInDown">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title">Edytuj osobę kontaktową</h4>
+              <h4 class="modal-title">Edytuj serię numeracji</h4>
             </div>
             <div class="modal-body">
 
               <div class="form-group">
-                <label class="m-b-none">Imię*</label>
-                <input type="text" placeholder="" class="form-control" value="Alex">
+                <label class="m-b-none">Nazwa*</label>
+                <input type="text" placeholder="" class="form-control" value="Faktura VAT">
               </div>
               <div class="form-group">
-                <label class="m-b-none">Nazwisko*</label>
-                <input type="text" placeholder="" class="form-control" value="Smith">
+                <label class="m-b-none">Seria*</label>
+                <input type="text" placeholder="" class="form-control" disabled value="FV/[dd]/[mm]/[rrrr]/[nm]">
               </div>
-              <div class="form-group">
-                <label class="m-b-none">Adres e-mail</label>
-                <input type="text" placeholder="" class="form-control" value="asmith@jakistamadres.pl">
+
+              <div class="alert alert-info">Dostępne zmienne: <br>
+                [dd] - Dzień <br>
+                [mm] - Miesiąc<br>
+                [rrrr] - Rok<br>
+                [nm] - Numer miesięczny<br>
+                [nr] - Numer roczny
               </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- EDYTUJ SERIĘ MODAL END-->
+
+      <!-- DODAJ STAWKĘMODAL START -->
+      <div class="modal inmodal" id="addvat" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Dodaj stawkę VAT</h4>
+            </div>
+            <div class="modal-body">
+
               <div class="form-group">
-                <label class="m-b-none">Telefon</label>
-                <input type="text" placeholder="" class="form-control" value="123654132">
-              </div>
-              <div class="form-group">
-                <label class="m-b-none">Stanowisko</label>
-                <input type="text" placeholder="" class="form-control" value="CEO">
+                <label class="m-b-none">Stawka*</label>
+                <div class="input-group m-b">
+                  <input type="number" class="form-control">
+                  <div class="input-group-append">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -625,7 +737,89 @@
           </div>
         </div>
       </div>
-      <!-- DODAJ OS KONTAKTOWĄ MODAL END-->
+      <!-- DODAJ STAWKĘ MODAL END-->
+
+      <!-- EDYTUJ STAWKĘ MODAL START -->
+      <div class="modal inmodal" id="editvat" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Edytuj stawkę VAT</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Stawka*</label>
+                <div class="input-group m-b">
+                  <input type="number" class="form-control" value="23">
+                  <div class="input-group-append">
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- EDYTUJ STAWKĘ MODAL END-->
+
+      <!-- DODAJ metodę płatności MODAL START -->
+      <div class="modal inmodal" id="addsposob" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Dodaj metodę płatności</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Nazwa*</label>
+                <input type="text" placeholder="" class="form-control">
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DODAJ metodę płatności MODAL END-->
+
+      <!-- EDYTUJ metodę płatności MODAL START -->
+      <div class="modal inmodal" id="editsposob" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeInDown">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title">Edytuj metodę płatności</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="m-b-none">Nazwa*</label>
+                <input type="text" placeholder="" class="form-control" value="Przelew">
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+              <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- EDYTUJ metodę płatności MODAL END-->
+
 
       <!-- DODAJ PLIK MODAL START -->
       <div class="modal inmodal" id="addfile" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <!-- Authors of INSPINIA admin template: WebAppLayers / https://wrapbootstrap.com/theme/inspinia-responsive-admin-theme-WB0R5L90S
+
+        * This project was created for learning programming and to help improve my skills.
+        * This project is not commercial.
+
+        Author of this mockup and business idea of this project is Kacper Kozioł. Linkedin: https://www.linkedin.com/in/kacperkoziol/
+    -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lista kontrahentów | TAVELI</title>
+
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="https://cdn3.iconfinder.com/data/icons/block/32/stopwatch-512.png"> -->
+  <link rel="icon" type="image/png" sizes="16x16" href="taveliicon.png">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+  <link href="css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+  <link href="css/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+  <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+
+
+  <!-- FROM DESK -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7990d3a9fb.js" crossorigin="anonymous"></script>
+
+  <!-- Sweet Alert -->
+  <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+  <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+
+  <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+  <!-- <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet"> -->
+  <link href="css/plugins/bootstrapSocial/bootstrap-social.css" rel="stylesheet">
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <style>
+    .menu-links {
+      padding-left: 47px !important;
+    }
+
+    table td {
+      padding-top: 10px !important;
+      padding-bottom: 8px !important;
+    }
+
+    tbody tr:hover {
+      /* background-color: #d8ebe6; */
+      background-color: rgba(216, 235, 230, 0.4) !important;
+    }
+
+    .infocalendar{
+      background-color: #23c6c8 !important;
+      border-color: #23c6c8 !important;
+    }
+    .eventcalendar{
+      background-color: #1c84c6 !important;
+      border-color: #1c84c6 !important;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+
+              <span class="block m-t-xs font-bold" style="color: darkgray;">TAVELI</span>
+              <span class="text-muted text-xs block m-b-xs">by Kacper Kozioł</span>
+              <a href="https://www.linkedin.com/in/kacperkoziol/" class="btn btn-social-icon btn-linkedin btn-xs" target="_blank"><span class="fa fa-linkedin"></span></a>
+
+            </div>
+            <div class="logo-element" style="font-size: 22px;">
+              <!-- <i class="fa fa-clock-o"></i> -->
+              <img src="taveliicon.png" alt="">
+            </div>
+          </li>
+
+          <li class="">
+            <a href="index.html"><i class="fa fa-home" style="font-size: 14px;"></i> <span class="nav-label">Dashboard</span></a>
+          </li>
+          <li>
+            <a href="#" aria-expanded="false"><i class="fa fa-briefcase"></i> <span class="nav-label">Kontrahenci</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+
+              <li><a href="dodaj-kontrahenta.html" class="menu-links">Dodaj kontrahenta</a>
+              </li>
+              <li class="active">
+                <a href="lista-kontrahentow.html" class="menu-links">Lista kontrahentów</a>
+              </li>
+            </ul>
+          </li>
+          <li  class="active">
+            <a href="kalendarz.html"><i class="fa fa-calendar" style="font-size: 14px;"></i> <span class="nav-label">Kalendarz</span></a>
+          </li>
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-dollar"></i> <span class="nav-label">Księgowość</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+
+              <li><a href="moje-finanse.html" class="menu-links">Moje finanse</a>
+              </li>
+              <li>
+                <a href="dodaj-fakture.html" class="menu-links">Dodaj fakturę</a>
+              </li>
+              <li>
+                <a href="wystaw-fakture.html" class="menu-links">Wystaw fakturę</a>
+              </li>
+              <li>
+                <a href="dodaj-fakture-cykliczna.html" class="menu-links">Dodaj fakturę cykliczną</a>
+              </li>
+              <li>
+                <a href="lista-faktur.html" class="menu-links">Lista faktur</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-file"></i> <span class="nav-label">Dokumenty</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li>
+                <a href="dodaj-dokument.html" class="menu-links">Dodaj dokument</a>
+              </li>
+              <li><a href="repozytorium.html" class="menu-links">Repozytorium dokumentów</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-dropbox"></i> <span class="nav-label">Produkty i usługi</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li>
+                <a href="dodaj-produkt-usluge.html" class="menu-links">Dodaj produkt/usługę</a>
+              </li>
+              <li><a href="lista-produktow-uslug.html" class="menu-links">Lista produktów i usług</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="raporty.html"><i class="fa fa-line-chart" style="font-size: 14px;"></i> <span class="nav-label">Raporty</span></a>
+          </li>
+
+          <li class="">
+            <a href="#" aria-expanded="false"><i class="fa fa-users"></i> <span class="nav-label">Użytkownicy</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+              <li><a href="dodaj-uzytkownika.html" class="menu-links">Dodaj użytkownika</a>
+              </li>
+              <li><a href="lista-uzytkownikow.html" class="menu-links">Lista użytkowników</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="">
+            <a href="ustawienia.html"><i class="fa fa-gears" style="font-size: 14px;"></i> <span class="nav-label">Ustawienia</span></a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" method="post" action="#">
+
+            </form>
+          </div>
+          <ul class="nav navbar-top-links navbar-right">
+            <li>
+              <a href="login.html">
+                <i class="fa fa-sign-out"></i> Wyloguj
+              </a>
+            </li>
+          </ul>
+
+        </nav>
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row wrapper border-bottom white-bg page-heading p-xs">
+          <div class="col-md-12 row">
+            <div class="col-11">
+              <h2 class="m-t-sm m-b-xss">Kalendarz</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+          <div class="row animated fadeInDown">
+            <div class="col-lg-3">
+
+              <div class="ibox ">
+
+                <div class="ibox-content">
+                  <div id="external-events">
+                    <button type="button" class="btn btn-primary btn-block" title="" data-toggle="modal" data-target="#addevent" data-original-title="Dodaj załącznik">Dodaj wydarzenie</button>
+                    <button type="button" class="btn btn-primary btn-block" title="" data-toggle="modal" data-target="#addinfo" data-original-title="Dodaj załącznik">Dodaj przypomnienie</button>
+                  </div>
+                </div>
+              </div>
+              <div class="ibox ">
+                <div class="ibox-title">
+                  <h5>Dzisiaj</h5>
+                </div>
+                <div class="ibox-content">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <b>Wydarzenie</b>
+                    </div>
+                    <div class="panel-body">
+                      <b>Nazwa:</b> Lorem ipsum <br>
+                      <b>Godzina:</b> 12:00 - 13:00 <br>
+                      <b>Opis:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    </div>
+                  </div>
+
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <b>Przypomnienie</b>
+                    </div>
+                    <div class="panel-body">
+                      <b>Nazwa:</b> Lorem ipsum <br>
+                      <b>Godzina:</b> 12:00 - 13:00 <br>
+                      <b>Opis:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <div class="ibox">
+                <div class="ibox-title">
+                  <h5>Kalendarz </h5>
+                </div>
+                <div class="ibox-content" style="">
+                  <div id="calendar" class="fc fc-unthemed fc-ltr">
+                    <div class="fc-toolbar">
+                      <div class="fc-left">
+                        <div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left"><span class="fc-icon fc-icon-left-single-arrow"></span></button><button type="button"
+                            class="fc-next-button fc-button fc-state-default fc-corner-right"><span class="fc-icon fc-icon-right-single-arrow"></span></button></div><button type="button"
+                          class="fc-today-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled" disabled="">dzisiaj</button>
+                      </div>
+                      <div class="fc-right">
+                        <div class="fc-button-group"><button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">miesiąc</button><button type="button"
+                            class="fc-agendaWeek-button fc-button fc-state-default">tydzień</button><button type="button" class="fc-agendaDay-button fc-button fc-state-default fc-corner-right">dzień</button></div>
+                      </div>
+                      <div class="fc-center">
+                        <h2>Styczeń 2021</h2>
+                      </div>
+                      <div class="fc-clear"></div>
+                    </div>
+                    <div class="fc-view-container" style="">
+                      <div class="fc-view fc-month-view fc-basic-view" style="">
+                        <table>
+                          <thead class="fc-head">
+                            <tr>
+                              <td class="fc-head-container fc-widget-header">
+                                <div class="fc-row fc-widget-header">
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th class="fc-day-header fc-widget-header fc-mon">Pn</th>
+                                        <th class="fc-day-header fc-widget-header fc-tue">Wt</th>
+                                        <th class="fc-day-header fc-widget-header fc-wed">Śr</th>
+                                        <th class="fc-day-header fc-widget-header fc-thu">Cz</th>
+                                        <th class="fc-day-header fc-widget-header fc-fri">Pt</th>
+                                        <th class="fc-day-header fc-widget-header fc-sat">So</th>
+                                        <th class="fc-day-header fc-widget-header fc-sun">Nd</th>
+                                      </tr>
+                                    </thead>
+                                  </table>
+                                </div>
+                              </td>
+                            </tr>
+                          </thead>
+                          <tbody class="fc-body">
+                            <tr>
+                              <td class="fc-widget-content">
+                                <div class="fc-scroller fc-day-grid-container" style="overflow: hidden; height: 480px;">
+                                  <div class="fc-day-grid fc-unselectable">
+                                    <div class="fc-row fc-week fc-widget-content" style="height: 80px;">
+                                      <div class="fc-bg">
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-day fc-widget-content fc-sun fc-other-month fc-past" data-date="2020-12-27"></td>
+                                              <td class="fc-day fc-widget-content fc-mon fc-other-month fc-past" data-date="2020-12-28"></td>
+                                              <td class="fc-day fc-widget-content fc-tue fc-other-month fc-past" data-date="2020-12-29"></td>
+                                              <td class="fc-day fc-widget-content fc-wed fc-other-month fc-past" data-date="2020-12-30"></td>
+                                              <td class="fc-day fc-widget-content fc-thu fc-other-month fc-past" data-date="2020-12-31"></td>
+                                              <td class="fc-day fc-widget-content fc-fri fc-past" data-date="2021-01-01"></td>
+                                              <td class="fc-day fc-widget-content fc-sat fc-past" data-date="2021-01-02"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="fc-content-skeleton">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <td class="fc-day-number fc-sun fc-other-month fc-past" data-date="2020-12-27">27</td>
+                                              <td class="fc-day-number fc-mon fc-other-month fc-past" data-date="2020-12-28">28</td>
+                                              <td class="fc-day-number fc-tue fc-other-month fc-past" data-date="2020-12-29">29</td>
+                                              <td class="fc-day-number fc-wed fc-other-month fc-past" data-date="2020-12-30">30</td>
+                                              <td class="fc-day-number fc-thu fc-other-month fc-past" data-date="2020-12-31">31</td>
+                                              <td class="fc-day-number fc-fri fc-past" data-date="2021-01-01">1</td>
+                                              <td class="fc-day-number fc-sat fc-past" data-date="2021-01-02">2</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td></td>
+                                              <td class="fc-event-container"><a data-toggle="modal" data-target="#editinfo" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable infocalendar">
+                                                  <div class="fc-content"><span class="fc-time"></span> <span class="fc-title">Wysłać umowę</span></div>
+                                                </a></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td class="fc-event-container"><a data-toggle="modal" data-target="#editevent" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable eventcalendar">
+                                                  <div class="fc-content"><span class="fc-time"></span> <span class="fc-title">Spotkanie z firmax</span></div>
+                                                </a></td>
+                                              <td></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="fc-row fc-week fc-widget-content" style="height: 80px;">
+                                      <div class="fc-bg">
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-day fc-widget-content fc-sun fc-past" data-date="2021-01-03"></td>
+                                              <td class="fc-day fc-widget-content fc-mon fc-past" data-date="2021-01-04"></td>
+                                              <td class="fc-day fc-widget-content fc-tue fc-past" data-date="2021-01-05"></td>
+                                              <td class="fc-day fc-widget-content fc-wed fc-past" data-date="2021-01-06"></td>
+                                              <td class="fc-day fc-widget-content fc-thu fc-past" data-date="2021-01-07"></td>
+                                              <td class="fc-day fc-widget-content fc-fri fc-past" data-date="2021-01-08"></td>
+                                              <td class="fc-day fc-widget-content fc-sat fc-past" data-date="2021-01-09"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="fc-content-skeleton">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <td class="fc-day-number fc-sun fc-past" data-date="2021-01-03">3</td>
+                                              <td class="fc-day-number fc-mon fc-past" data-date="2021-01-04">4</td>
+                                              <td class="fc-day-number fc-tue fc-past" data-date="2021-01-05">5</td>
+                                              <td class="fc-day-number fc-wed fc-past" data-date="2021-01-06">6</td>
+                                              <td class="fc-day-number fc-thu fc-past" data-date="2021-01-07">7</td>
+                                              <td class="fc-day-number fc-fri fc-past" data-date="2021-01-08">8</td>
+                                              <td class="fc-day-number fc-sat fc-past" data-date="2021-01-09">9</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="fc-row fc-week fc-widget-content" style="height: 80px;">
+                                      <div class="fc-bg">
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-day fc-widget-content fc-sun fc-past" data-date="2021-01-10"></td>
+                                              <td class="fc-day fc-widget-content fc-mon fc-past" data-date="2021-01-11"></td>
+                                              <td class="fc-day fc-widget-content fc-tue fc-past" data-date="2021-01-12"></td>
+                                              <td class="fc-day fc-widget-content fc-wed fc-past" data-date="2021-01-13"></td>
+                                              <td class="fc-day fc-widget-content fc-thu fc-past" data-date="2021-01-14"></td>
+                                              <td class="fc-day fc-widget-content fc-fri fc-past" data-date="2021-01-15"></td>
+                                              <td class="fc-day fc-widget-content fc-sat fc-past" data-date="2021-01-16"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="fc-content-skeleton">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <td class="fc-day-number fc-sun fc-past" data-date="2021-01-10">10</td>
+                                              <td class="fc-day-number fc-mon fc-past" data-date="2021-01-11">11</td>
+                                              <td class="fc-day-number fc-tue fc-past" data-date="2021-01-12">12</td>
+                                              <td class="fc-day-number fc-wed fc-past" data-date="2021-01-13">13</td>
+                                              <td class="fc-day-number fc-thu fc-past" data-date="2021-01-14">14</td>
+                                              <td class="fc-day-number fc-fri fc-past" data-date="2021-01-15">15</td>
+                                              <td class="fc-day-number fc-sat fc-past" data-date="2021-01-16">16</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="fc-row fc-week fc-widget-content" style="height: 80px;">
+                                      <div class="fc-bg">
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-day fc-widget-content fc-sun fc-past" data-date="2021-01-17"></td>
+                                              <td class="fc-day fc-widget-content fc-mon fc-past" data-date="2021-01-18"></td>
+                                              <td class="fc-day fc-widget-content fc-tue fc-past" data-date="2021-01-19"></td>
+                                              <td class="fc-day fc-widget-content fc-wed fc-past" data-date="2021-01-20"></td>
+                                              <td class="fc-day fc-widget-content fc-thu fc-past" data-date="2021-01-21"></td>
+                                              <td class="fc-day fc-widget-content fc-fri fc-past" data-date="2021-01-22"></td>
+                                              <td class="fc-day fc-widget-content fc-sat fc-past" data-date="2021-01-23"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="fc-content-skeleton">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <td class="fc-day-number fc-sun fc-past" data-date="2021-01-17">17</td>
+                                              <td class="fc-day-number fc-mon fc-past" data-date="2021-01-18">18</td>
+                                              <td class="fc-day-number fc-tue fc-past" data-date="2021-01-19">19</td>
+                                              <td class="fc-day-number fc-wed fc-past" data-date="2021-01-20">20</td>
+                                              <td class="fc-day-number fc-thu fc-past" data-date="2021-01-21">21</td>
+                                              <td class="fc-day-number fc-fri fc-past" data-date="2021-01-22">22</td>
+                                              <td class="fc-day-number fc-sat fc-past" data-date="2021-01-23">23</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td rowspan="2"></td>
+                                              <td rowspan="2"></td>
+                                              <td class="fc-event-container" colspan="3"></td>
+                                              <td rowspan="2"></td>
+                                              <td rowspan="2"></td>
+                                            </tr>
+                                            <tr>
+                                              <td></td>
+                                              <td></td>
+                                              <td class="fc-event-container"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="fc-row fc-week fc-widget-content" style="height: 80px;">
+                                      <div class="fc-bg">
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-day fc-widget-content fc-sun fc-today fc-state-highlight" data-date="2021-01-24"></td>
+                                              <td class="fc-day fc-widget-content fc-mon fc-future" data-date="2021-01-25"></td>
+                                              <td class="fc-day fc-widget-content fc-tue fc-future" data-date="2021-01-26"></td>
+                                              <td class="fc-day fc-widget-content fc-wed fc-future" data-date="2021-01-27"></td>
+                                              <td class="fc-day fc-widget-content fc-thu fc-future" data-date="2021-01-28"></td>
+                                              <td class="fc-day fc-widget-content fc-fri fc-future" data-date="2021-01-29"></td>
+                                              <td class="fc-day fc-widget-content fc-sat fc-future" data-date="2021-01-30"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="fc-content-skeleton">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <td class="fc-day-number fc-sun fc-today fc-state-highlight" data-date="2021-01-24">24</td>
+                                              <td class="fc-day-number fc-mon fc-future" data-date="2021-01-25">25</td>
+                                              <td class="fc-day-number fc-tue fc-future" data-date="2021-01-26">26</td>
+                                              <td class="fc-day-number fc-wed fc-future" data-date="2021-01-27">27</td>
+                                              <td class="fc-day-number fc-thu fc-future" data-date="2021-01-28">28</td>
+                                              <td class="fc-day-number fc-fri fc-future" data-date="2021-01-29">29</td>
+                                              <td class="fc-day-number fc-sat fc-future" data-date="2021-01-30">30</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-event-container"></td>
+                                              <td class="fc-event-container" rowspan="2"></td>
+                                              <td rowspan="2"></td>
+                                              <td rowspan="2"></td>
+                                              <td class="fc-event-container"></td>
+                                              <td rowspan="2"></td>
+                                              <td rowspan="2"></td>
+                                            </tr>
+                                            <tr>
+                                              <td class="fc-event-container"></td>
+                                              <td class="fc-event-container"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="fc-row fc-week fc-widget-content" style="height: 80px;">
+                                      <div class="fc-bg">
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td class="fc-day fc-widget-content fc-sun fc-future" data-date="2021-01-31"></td>
+                                              <td class="fc-day fc-widget-content fc-mon fc-other-month fc-future" data-date="2021-02-01"></td>
+                                              <td class="fc-day fc-widget-content fc-tue fc-other-month fc-future" data-date="2021-02-02"></td>
+                                              <td class="fc-day fc-widget-content fc-wed fc-other-month fc-future" data-date="2021-02-03"></td>
+                                              <td class="fc-day fc-widget-content fc-thu fc-other-month fc-future" data-date="2021-02-04"></td>
+                                              <td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2021-02-05"></td>
+                                              <td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2021-02-06"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="fc-content-skeleton">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <td class="fc-day-number fc-sun fc-future" data-date="2021-01-31">31</td>
+                                              <td class="fc-day-number fc-mon fc-other-month fc-future" data-date="2021-02-01">1</td>
+                                              <td class="fc-day-number fc-tue fc-other-month fc-future" data-date="2021-02-02">2</td>
+                                              <td class="fc-day-number fc-wed fc-other-month fc-future" data-date="2021-02-03">3</td>
+                                              <td class="fc-day-number fc-thu fc-other-month fc-future" data-date="2021-02-04">4</td>
+                                              <td class="fc-day-number fc-fri fc-other-month fc-future" data-date="2021-02-05">5</td>
+                                              <td class="fc-day-number fc-sat fc-other-month fc-future" data-date="2021-02-06">6</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DODAJ WYDARZENIE MODAL START -->
+        <div class="modal inmodal" id="addevent" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content animated fadeInDown">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Dodaj wydarzenie</h4>
+              </div>
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <label class="m-b-none">Nazwa*</label>
+                  <input type="text" placeholder="" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="font-normal">Termin*</label>
+                  <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="24/01/2021">
+                  </div>
+                </div>
+                <div class="form-group m-b-none">
+                  <div class="row  form-line">
+                    <div class="col-md-6">
+                      <label class="m-b-none">Od*</label>
+                      <input type="time" class="form-control m-b">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="m-b-none">Do*</label>
+                      <input type="time" class="form-control m-b">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <a id="advancedButton" onclick="showAdvanced()" class="text-success">Zaawansowane <i class="fa fa-caret-down"></i></a>
+                  <a id="advancedButtonHide" onclick="hideAdvanced()" class="text-success" style="display: none">Zaawansowane <i class="fa fa-caret-up"></i></a>
+                </div>
+                <div id="advancedOptions" class="m-t-sm" style="display: none;">
+                  <div class="form-group">
+                    <label class="m-b-none">Lokalizacja</label>
+                    <input type="text" placeholder="" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="m-b-none">Załącznik</label>
+                    <input type="file" placeholder="" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="m-b-none">Opis</label>
+                    <textarea type="text" class="form-control" rows="4"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="m-b-none">Dodaj gości</label>
+                    <input type="text" placeholder="" class="form-control">
+                    <small>Podaj adresy email osoób, do których wysłać powiadomienie o wydarzeniu. Adresy, rozdziel średnikami.</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="m-b-none">Dodaj kontrahenta</label>
+                    <select placeholder="" class="form-control">
+                      <option value="1" selected>Klient1</option>
+                      <option value="1">Klient2</option>
+                      <option value="1">Klient3</option>
+                    </select>
+                    <small>Wybrane: kontakt@firmatestowa.pl</small>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary">Zapisz</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DODAJ WYDARZENIE MODAL END-->
+
+        <!-- EDYTUJ WYDARZENIE MODAL START -->
+        <div class="modal inmodal" id="editevent" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content animated fadeInDown">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Edytuj wydarzenie</h4>
+              </div>
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <label class="m-b-none">Nazwa*</label>
+                  <input type="text" placeholder="" class="form-control" value="Spotkanie z Firmax SA">
+                </div>
+                <div class="form-group">
+                  <label class="font-normal">Termin*</label>
+                  <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="24/01/2021">
+                  </div>
+                </div>
+                <div class="form-group m-b-none">
+                  <div class="row  form-line">
+                    <div class="col-md-6">
+                      <label class="m-b-none">Od*</label>
+                      <input type="time" class="form-control m-b" value="12:00">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="m-b-none">Do*</label>
+                      <input type="time" class="form-control m-b" value="13:00">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <a id="advancedButton" onclick="showAdvanced()" class="text-success" style="display: none">Zaawansowane <i class="fa fa-caret-down"></i></a>
+                  <a id="advancedButtonHide" onclick="hideAdvanced()" class="text-success">Zaawansowane <i class="fa fa-caret-up"></i></a>
+                </div>
+                <div id="advancedOptions" class="m-t-sm" >
+                  <div class="form-group">
+                    <label class="m-b-none">Lokalizacja</label>
+                    <input type="text" placeholder="" class="form-control" value="Online">
+                  </div>
+                  <div class="form-group">
+                    <label class="m-b-none">Załącznik</label><br>
+                    <div class="m-t-sm m-b-sm"><b>Aktualny załącznik:</b><a href="#"> Agenda_spotkania.pdf</a> </div>
+                    <input type="file" placeholder="" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="m-b-none">Opis</label>
+                    <textarea type="text" class="form-control" rows="4">orem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="m-b-none">Dodaj gości</label>
+                    <input type="text" placeholder="" class="form-control" value="marian@firmax.pl">
+                    <small>Podaj adresy email osoób, do których wysłać powiadomienie o wydarzeniu. Adresy, rozdziel średnikami.</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="m-b-none">Dodaj kontrahenta</label>
+                    <select placeholder="" class="form-control">
+                      <option value="1" selected>Klient1</option>
+                      <option value="1">Klient2</option>
+                      <option value="1">Klient3</option>
+                    </select>
+                    <small>Wybrane: kontakt@firmatestowa.pl</small>
+                  </div>
+                </div>
+
+                <button type="button" class="btn btn-danger" name="button">Usuń wydarzenie</button>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary">Zapisz</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- EDYTUJ WYDARZENIE MODAL END-->
+
+
+        <!-- DODAJ PRZYPOMNIENIE  MODAL START -->
+        <div class="modal inmodal" id="addinfo" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content animated fadeInDown">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Dodaj przypomnienie</h4>
+              </div>
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <label class="m-b-none">Nazwa*</label>
+                  <input type="text" placeholder="" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label class="font-normal">Termin*</label>
+                  <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="24/01/2021">
+                  </div>
+                </div>
+                <div class="form-group m-b-none">
+                  <div class="row  form-line">
+                    <div class="col-md-6">
+                      <label class="m-b-none">Godzina*</label>
+                      <input type="time" class="form-control m-b">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group ">
+                  <label class="m-b-none">Opis</label>
+                  <textarea type="text" class="form-control" rows="4"></textarea>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary">Zapisz</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DODAJ PRZYPOMNIENIE MODAL END-->
+
+        <!-- EDYTUJ PRZYPOMNIENIE  MODAL START -->
+        <div class="modal inmodal" id="editinfo" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content animated fadeInDown">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Edytuj przypomnienie</h4>
+              </div>
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <label class="m-b-none">Nazwa*</label>
+                  <input type="text" placeholder="" class="form-control" value="Wysłać umowę do Firmax SA">
+                </div>
+
+                <div class="form-group">
+                  <label class="font-normal">Termin*</label>
+                  <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="24/01/2021">
+                  </div>
+                </div>
+                <div class="form-group m-b-none">
+                  <div class="row  form-line">
+                    <div class="col-md-6">
+                      <label class="m-b-none">Godzina*</label>
+                      <input type="time" class="form-control m-b" value="12:00">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group ">
+                  <label class="m-b-none">Opis</label>
+                  <textarea type="text" class="form-control" rows="4">Wysłać umowę o dzieło dla Firmax SA na budowę szałasu.</textarea>
+                </div>
+
+                <button type="button" class="btn btn-danger" name="button">Usuń przypomnienie</button>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary">Zapisz</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- EDYTUJ PRZYPOMNIENIE MODAL END-->
+
+
+      </div>
+      <div class="footer">
+        <div class="pull-right">
+          <!--                    flags -->
+        </div>
+        <div>
+          <strong>TAVELI</strong> &copy; 2021
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mainly scripts -->
+  <script src="js/plugins/fullcalendar/moment.min.js"></script>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <!-- Custom and plugin javascript -->
+  <script src="js/inspinia.js"></script>
+  <script src="js/plugins/pace/pace.min.js"></script>
+  <script src="js/plugins/fullcalendar/fullcalendar.min.js"></script>
+  <!-- <script src="js/plugins/sweetalert/sweetalert.min.js"></script> -->
+  <script src="js/plugins/toastr/toastr.min.js"></script>
+  <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+  <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+  <script src="js/plugins/fullcalendar/moment.min.js"></script>
+  <script src="main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+      });
+
+      $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+      });
+      $(function() {
+        $(".btn-tooltip").tooltip();
+      });
+
+      $('.btn-delete-attachment').click(function() {
+        swal({
+          title: "Usunąć załącznik?",
+          text: "Elementu nie będzie się dało odzyskać!",
+          type: "warning",
+          showCancelButton: true,
+          cancelButtonText: "Anuluj",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Usuń",
+          closeOnConfirm: false
+        }, function() {
+          swal("Usunięto!", "Element został usunięty.", "success");
+        });
+      });
+
+      $('.btn-delete-post').click(function() {
+        swal({
+          title: "Usunąć przypomnienie?",
+          text: "Elementu nie będzie się dało odzyskać!",
+          type: "warning",
+          showCancelButton: true,
+          cancelButtonText: "Anuluj",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Usuń",
+          closeOnConfirm: false
+        }, function() {
+          swal("Usunięto!", "Element został usunięty.", "success");
+        });
+      });
+
+      var updateOutput = function(e) {
+        var list = e.length ? e : $(e.target),
+          output = list.data('output');
+        if (window.JSON) {
+          output.val(window.JSON.stringify(list.nestable('serialize'))); //, null, 2));
+        } else {
+          output.val('JSON browser support required for this demo.');
+        }
+      };
+
+    });
+
+    function showAdvanced() {
+      var x = document.getElementById("advancedOptions");
+      var btnShow = document.getElementById("advancedButton");
+      var btnHide = document.getElementById("advancedButtonHide");
+
+      if (x.style.display === "block") {
+        x.style.display = "none";
+        btnShow.style.display = "block";
+        btnHide.style.display = "none";
+      } else {
+        x.style.display = "block";
+        btnShow.style.display = "none";
+        btnHide.style.display = "block";
+      }
+    }
+
+    function hideAdvanced() {
+      var x = document.getElementById("advancedOptions");
+      var btnShow = document.getElementById("advancedButton");
+      var btnHide = document.getElementById("advancedButtonHide");
+
+      if (x.style.display === "block") {
+        x.style.display = "none";
+        btnShow.style.display = "block";
+        btnHide.style.display = "none";
+      } else {
+        x.style.display = "block";
+        btnShow.style.display = "none";
+        btnHide.style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>
